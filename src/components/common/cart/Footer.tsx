@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text, Pressable, Image, StyleSheet } from 'react-native';
+import {View, Text, Pressable, Image, StyleSheet} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import Colors from '../../../utils/Colors';
-import { SCREEN_WIDTH } from '../../../utils/Theme';
+import {SCREEN_WIDTH} from '../../../utils/Theme';
 
 type FooterProps = {
   handleWhatsappPress?: () => void;
@@ -13,23 +13,42 @@ type FooterProps = {
 };
 
 const Footer = (props: FooterProps) => {
-  const { handleCallPress, handleWhatsappPress, isProductCart } = props;
+  const {handleCallPress, handleWhatsappPress, isProductCart} = props;
 
   return (
-    <View style={[styles.container, { paddingHorizontal: isProductCart ? null : 0 }]}>
+    <View
+      style={[styles.container, {paddingHorizontal: isProductCart ? null : 0}]}>
       {isProductCart ? (
-        <Pressable style={styles.submitEnquiryBtnContainer} onPress={handleWhatsappPress}>
-          <Text style={styles.submitEnquiryBtnTextStyles}>Submit Enquiry</Text>
-        </Pressable>
+        <>
+          <Pressable
+            style={styles.submitEnquiryBtnContainer}
+            onPress={handleWhatsappPress}>
+            <Text style={styles.submitEnquiryBtnTextStyles}>
+              Submit Enquiry
+            </Text>
+          </Pressable>
+        </>
       ) : (
-        <Pressable style={styles.whatsappBtnContainer} onPress={handleWhatsappPress}>
-          <FontAwesome name='whatsapp' size={22} color='green' style={styles.icon} />
+        <Pressable
+          style={styles.whatsappBtnContainer}
+          onPress={handleWhatsappPress}>
+          <FontAwesome
+            name="whatsapp"
+            size={22}
+            color="green"
+            style={styles.icon}
+          />
           <Text style={styles.whatsappBtnTextStyles}>Whatsapp</Text>
         </Pressable>
       )}
       {isProductCart ? null : (
         <Pressable style={styles.contactBtnContainer} onPress={handleCallPress}>
-          <MaterialIcons name='call' size={22} color='white' style={styles.icon} />
+          <MaterialIcons
+            name="call"
+            size={22}
+            color="white"
+            style={styles.icon}
+          />
           <Text style={styles.contactBtnTextStyles}>Call</Text>
         </Pressable>
       )}

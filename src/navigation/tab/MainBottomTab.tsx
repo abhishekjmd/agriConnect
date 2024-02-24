@@ -2,11 +2,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Image, StyleSheet } from "react-native";
 import ProfileDrawer from "../drawer/ProfileDrawer";
 import Colors from "../../utils/Colors";
-import Ionicons from "react-native-vector-icons/Ionicons";
-// import { SearchStack } from "../stack/SearchStack";
 import { HomeStack } from "../stack/HomeStack";
 import { RequirementStack } from "../stack/RequirementStack";
-// import { RequirementStack } from "../stack/RequirementStack";
+import ProfileView from "../../screens/main/ProfileView";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -32,9 +30,9 @@ const MainBottomTabNavigator = () => {
           },
         })}
       >
-        {/* <BottomTab.Screen
+        <BottomTab.Screen
           name={"Profile"}
-          component={ProfileDrawer}
+          component={ProfileView}
           options={{
             tabBarIcon: ({ color }) => (
               <Image
@@ -47,7 +45,7 @@ const MainBottomTabNavigator = () => {
             unmountOnBlur: true,
           }}
         />
- */}
+
         {/* <BottomTab.Screen
           name='Search'
           component={SearchStack}

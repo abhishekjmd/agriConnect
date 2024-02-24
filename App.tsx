@@ -1,4 +1,6 @@
 /* eslint-disable prettier/prettier */
+import 'react-native-gesture-handler';
+
 import {StyleSheet, Text, View, StatusBar} from 'react-native';
 import React from 'react';
 import Navigator from './src/navigation/Navigator';

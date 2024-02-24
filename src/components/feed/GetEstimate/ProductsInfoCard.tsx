@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View, Image, Pressable} from 'react-native';
 import React from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-// import {BrandsBackgroundImage} from '../../../assets';
+import {BrandsBackgroundImage} from '../../../assets';
 import {SCREEN_WIDTH} from '../../../utils/Theme';
 import Colors from '../../../utils/Colors';
 
@@ -12,6 +12,7 @@ type ProductsInfoCardProps = {
   handleIncrement: () => void;
   quantity?: string;
   handleDecrement: () => void;
+
 };
 
 const ProductsInfoCard = (props: ProductsInfoCardProps) => {
@@ -26,7 +27,7 @@ const ProductsInfoCard = (props: ProductsInfoCardProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
-        {/* <Image source={BrandsBackgroundImage} style={styles.image} /> */}
+        <Image source={BrandsBackgroundImage} style={styles.image} />
       </View>
       <View style={styles.infoContainer}>
         <View style={styles.productsInfoContainer}>
@@ -36,11 +37,11 @@ const ProductsInfoCard = (props: ProductsInfoCardProps) => {
         </View>
         <View style={styles.quantitySelectorContainer}>
           <Pressable onPress={handleDecrement}>
-            <AntDesign name="minus" size={18} color={Colors.PRIMARY} />
+            {/* <AntDesign name="minus" size={18} color={Colors.PRIMARY} /> */}
           </Pressable>
           <Text style={styles.quantityTextStyles}>{quantity}</Text>
           <Pressable onPress={handleIncrement}>
-            <AntDesign name="plus" size={16} color={Colors.PRIMARY} />
+            {/* <AntDesign name="plus" size={16} color={Colors.PRIMARY} /> */}
           </Pressable>
         </View>
       </View>
@@ -90,7 +91,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     flexDirection: 'row',
-    width: SCREEN_WIDTH * 0.23,
+    width: SCREEN_WIDTH * 0.10,
     height: 35,
     borderWidth: 1,
     borderColor: Colors.PRIMARY,
