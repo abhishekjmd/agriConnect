@@ -6,12 +6,13 @@ import {
   Text,
   View,
 } from 'react-native';
-import { useRef, useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import {useRef, useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
 import PhoneInput from 'react-native-phone-number-input';
 import Button from '../../components/Button';
-import { SCREEN_WIDTH } from '../../utils/Theme';
-import { globalStyles } from '../../styles/globalStyles';
+import {SCREEN_WIDTH} from '../../utils/Theme';
+import {globalStyles} from '../../styles/globalStyles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SignInScreen = () => {
   const phoneInput = useRef(null);
@@ -19,6 +20,18 @@ const SignInScreen = () => {
   const [formattedValue, setFormattedValue] = useState('');
   const [loading, setLoading] = useState(false);
   const navigation = useNavigation();
+
+  const handlePhoneNumberChange = async text => {
+    setNumber(text);
+    // Save the raw number
+    await AsyncStorage.setItem('phoneNumber', text);
+  };
+
+  const handleFormattedPhoneNumberChange = async text => {
+    setFormattedValue(text);
+    // Save the formatted number with country code
+    await AsyncStorage.setItem('formattedPhoneNumber', text);
+  };
 
   const handleSubmission = async () => {
     setLoading(true);
@@ -35,7 +48,7 @@ const SignInScreen = () => {
             style={styles.image}
           />
         </View>
-        <View style={{ flex: 1, justifyContent: 'center' }}>
+        <View style={{flex: 1, justifyContent: 'center'}}>
           <Text style={styles.title}>Signup / Login</Text>
           <View style={styles.iconContainer}>
             <Image
@@ -45,18 +58,20 @@ const SignInScreen = () => {
             <Text style={styles.whatsAppText}>Enter Your Whatsapp Number</Text>
           </View>
           <PhoneInput
-            containerStyle={{ width: '100%', marginTop: 12 }}
+            containerStyle={{width: '100%', marginTop: 12}}
             ref={phoneInput}
             defaultValue={number}
-            defaultCode='IN'
-            layout='first'
-            onChangeText={(text) => setNumber(text)}
-            onChangeFormattedText={(text) => setFormattedValue(text)}
+            defaultCode="IN"
+            layout="first"
+            onChangeText={text => handlePhoneNumberChange(text)}
+            onChangeFormattedText={text =>
+              handleFormattedPhoneNumberChange(text)
+            }
             withShadow
             autoFocus
           />
           <Button
-            title='Send OTP'
+            title="Send OTP"
             style={[
               globalStyles.buttonSubmit,
               {
@@ -107,7 +122,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     alignItems: 'center',
   },
-  whatsAppText: { fontSize: 13, fontWeight: '500', marginLeft: 4 },
+  whatsAppText: {fontSize: 13, fontWeight: '500', marginLeft: 4},
   privacyText: {
     color: '#00000099',
     fontWeight: '600',

@@ -53,7 +53,10 @@ export default function UserRegistrationScreen() {
 
   return (
     <ScrollView style={styles.container}>
-      <Image source={require('../../assets/logo.png')} style={styles.image} />
+      <Image
+        source={require('../../assets/agriConnectLogo.png')}
+        style={styles.image}
+      />
       <View style={styles.progressBarContainer}>
         {progressBarData.map((item, index) => {
           return (

@@ -5,6 +5,7 @@ import Colors from "../../utils/Colors";
 import Ionicons from "react-native-vector-icons/Ionicons";
 // import { SearchStack } from "../stack/SearchStack";
 import { HomeStack } from "../stack/HomeStack";
+import { RequirementStack } from "../stack/RequirementStack";
 // import { RequirementStack } from "../stack/RequirementStack";
 
 const BottomTab = createBottomTabNavigator();
@@ -78,7 +79,7 @@ const MainBottomTabNavigator = () => {
           }}
         />
 
-        {/* <BottomTab.Screen
+        <BottomTab.Screen
           name='Requirements'
           component={RequirementStack}
           options={{
@@ -92,7 +93,7 @@ const MainBottomTabNavigator = () => {
             ),
           }}
         />
- */}
+
       </BottomTab.Navigator>
     </>
   )
