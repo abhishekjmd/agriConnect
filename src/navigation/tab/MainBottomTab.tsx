@@ -31,7 +31,7 @@ const MainBottomTabNavigator = () => {
           },
         })}
       >
-        <BottomTab.Screen
+        {/* <BottomTab.Screen
           name={"Profile"}
           component={ProfileDrawer}
           options={{
@@ -46,7 +46,7 @@ const MainBottomTabNavigator = () => {
             unmountOnBlur: true,
           }}
         />
-
+ */}
         {/* <BottomTab.Screen
           name='Search'
           component={SearchStack}
@@ -63,7 +63,7 @@ const MainBottomTabNavigator = () => {
           }}
         /> */}
 
-        {/* <BottomTab.Screen
+        <BottomTab.Screen
           name='Home'
           component={HomeStack}
           options={{
@@ -77,7 +77,7 @@ const MainBottomTabNavigator = () => {
             ),
           }}
         />
- */}
+
         {/* <BottomTab.Screen
           name='Requirements'
           component={RequirementStack}
